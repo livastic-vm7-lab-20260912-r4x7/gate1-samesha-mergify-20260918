@@ -16,7 +16,8 @@ jobs:
           echo "BASE=${{ github.base_ref }}"
           if [[ "${{ github.event.pull_request.title }}" == "merge queue:"* ]]; then
             echo "VM7_TEST_MODE=full-queue-suite"
-            sleep 120
+            echo "VM7_HOLD_SECONDS=300"
+            sleep 300
             echo "synthetic batch failure"
             exit 1
           fi
